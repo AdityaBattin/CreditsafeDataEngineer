@@ -1,0 +1,12 @@
+Start Date and Time: 2024-05-22 12:14:11.191489
+Files matched the pattern:
+File: C:\Users\CSINAABN\OneDrive - Creditsafe\Desktop\CRO DDATA FIX\Ddata_44_21052024.dat
+Blank line at line number: 38619
+Blank line at line number: 48984
+Blank line at line number: 106228
+Blank line at line number: 106523
+Blank line at line number: 153691
+Blank line at line number: 263791
+Blank line at line number: 362640
+End Date and Time: 2024-05-22 12:14:11.943860
+
