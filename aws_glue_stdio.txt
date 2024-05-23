@@ -1,0 +1,24 @@
+AWS_ACCOUNT_ID=`aws sts get-caller-identity --query Account --output text`
+AWS_REGION=`aws configure get region`
+BUCKET_NAME=glueworkshop-356911161830-us-east-2
+echo "export BUCKET_NAME=\"glueworkshop-356911161830-us-east-2\"" >> /home/ec2-user/.bashrc
+echo "export AWS_REGION=\"us-east-2\"" >> /home/ec2-user/.bashrc
+echo "export AWS_ACCOUNT_ID=\"356911161830\"" >> /home/ec2-user/.bashrc
+echo glueworkshop-356911161830-us-east-2
+echo us-east-2
+echo 356911161830
+
+
+aws glue create-crawler \
+--name cli-lab1 \
+--role AWSGlueServiceRole-glueworkshop \
+--database-name cli_glueworkshop \
+--table-prefix cli_ \
+--targets "{\"S3Targets\": [{\"Path\": \"s3://glueworkshop-356911161830-us-east-2/input/lab1/csv\"}, \
+                            {\"Path\": \"s3://glueworkshop-356911161830-us-east-2/input/lab5/json\"} ]}"
+
+aws s3 cp  ~/environment/glue-workshop/data/lab4/json/sample.json s3://glueworkshop-356911161830-us-east-2/input/lab1/eventnotification/json/sample.json  
+
+s3://glueworkshop-356911161830-us-east-2/output/lab5/basic/
+
+s3://glueworkshop-356911161830-us-east-2/output/lab5/pii/
