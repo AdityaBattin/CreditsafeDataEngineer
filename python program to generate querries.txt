@@ -1,0 +1,29 @@
+Write a python program that takes .csv file containing tablename, columns (seperated by ,), schema name 
+and outputs an txt file having a querry for each row of input in .csv file
+
+SELECT [COLUMNS], COUNT(*) 
+FROM [SCHEMAS].[TABLENAME]
+GROUP BY [SCHEMAS]
+HAVING COUNT(*) > 1;
+
+every querry seperated by the line
+
+
+
+import csv
+
+def generate_queries(input_csv, output_txt):
+    with open(input_csv, 'r') as csv_file, open(output_txt, 'w') as txt_file:
+        reader = csv.DictReader(csv_file)
+        for row in reader:
+            columns = row['columns']
+            table = row['tablename']
+            schema = row['schema']
+            query = f"SELECT {columns}, COUNT(*)\nFROM {schema}.{table}\nGROUP BY {columns}\nHAVING COUNT(*) > 1;\n\n"
+            txt_file.write(query)
+
+# Call the function with your input CSV file and output text file
+generate_queries('input.csv', 'output.txt')
+
+
+
